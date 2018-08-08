@@ -17,18 +17,14 @@ class App extends Component {
   }
 
   handleInput(event) {
-    console.log(event.target.value)
+    const inputSearch = event.target.value
     this.setState({
-      inputValue: event.target.value
+      inputValue: inputSearch
     })
     // ejecuto el filtro
-    this.letsFilter()
-  }
-
-  letsFilter() {
     const copyArray = [...this.state.hpCharacters]
     const arrayFilter = copyArray.filter(
-      char => char.name.includes(this.state.inputValue)
+      char => char.name.includes(inputSearch)
     )
     this.setState({
       charactersFiltered: arrayFilter
@@ -47,6 +43,7 @@ class App extends Component {
 
   render() {
     const { hpCharacters, charactersFiltered, inputValue } = this.state
+    console.log(this.state.charactersFiltered)
     return (
       <div className="App">
         <header>
