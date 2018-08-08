@@ -3,11 +3,19 @@ import CharacterCard from './CharacterCard';
 
 class CharacterList extends Component {
     render() {
-        const { hpCharacters } = this.props
+        const { hpCharacters, charactersFiltered } = this.props
+        let drawMeLikeOneOfYourFrechGirls
+
+        if (charactersFiltered.length === 0) {
+            drawMeLikeOneOfYourFrechGirls = hpCharacters
+        } else {
+            drawMeLikeOneOfYourFrechGirls = charactersFiltered
+        }
+
         return (
             <div>
                 <ul>
-                    {hpCharacters.map((char, i) =>
+                    {drawMeLikeOneOfYourFrechGirls.map((char, i) =>
                         <li
                             key={i}
                         >

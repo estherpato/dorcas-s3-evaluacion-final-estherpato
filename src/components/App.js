@@ -52,7 +52,7 @@ class App extends Component {
           <h1>Personajillos de Harry Potter</h1>
         </header>
         <main>
-          <Filters 
+          <Filters
             inputValue={inputValue}
             onChangeHandler={this.handleInput}
           />
