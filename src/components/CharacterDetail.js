@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
 
-class Detalle extends Component {
+class CharacterDetail extends Component {
     render() {
+        console.log('lelele')
         return (
             <div>
-                <img src="" alt="" />
+                holo
+                {/* <img src="" alt="" />
                 <h2></h2>
                 <ul>
                     <li></li>
                     <li></li>
                     <li></li>
                     <li></li>
-                </ul>
+                </ul> */}
             </div>
         );
     }
 }
 
-export default Detalle;
+export default CharacterDetail;

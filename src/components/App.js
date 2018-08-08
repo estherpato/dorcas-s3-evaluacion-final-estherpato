@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import { Link, Route, Switch } from 'react-router-dom';
 import '../stylesheets/App.css';
-import CharacterList from './CharacterList';
-import Filters from './Filters';
+import Home from './Home';
+import CharacterDetail from './CharacterDetail'
 
 class App extends Component {
   constructor(props) {
@@ -34,16 +35,6 @@ class App extends Component {
     })
   }
 
-  componentDidMount() {
-    fetch('http://hp-api.herokuapp.com/api/characters')
-      .then((response) => response.json())
-      .then((json) => {
-        this.setState({
-          hpCharacters: json
-        }, this.putID);
-      });
-  }
-
   putID() {
     const copyArray = [...this.state.hpCharacters]
     let hpCharactersID = []
@@ -59,31 +50,39 @@ class App extends Component {
     })
   }
 
+  componentDidMount() {
+    fetch('http://hp-api.herokuapp.com/api/characters')
+      .then((response) => response.json())
+      .then((json) => {
+        this.setState({
+          hpCharacters: json
+        }, this.putID);
+      });
+  }
+
   render() {
     const { hpCharsWithID, charactersFiltered, inputValue } = this.state
     console.log(this.state.hpCharsWithID)
     return (
-      <div className="App">
-        <header>
-          <h1>Personajillos de Harry Potter</h1>
-        </header>
-        <main>
-          <Filters
-            inputValue={inputValue}
-            onChangeHandler={this.handleInput}
-          />
-          <CharacterList
-            hpCharacters={hpCharsWithID}
+      <Switch>
+        <Route
+          path='/'
+          render={(props) => <Home
+            hpCharsWithID={hpCharsWithID}
             charactersFiltered={charactersFiltered}
             inputValue={inputValue}
-          />
-        </main>
-        <footer>
-          <p>Adalab</p>
-          <p>Evaluación Sprint 3</p>
-          <p>Esther Pato Gonzalez</p>
-        </footer>
-      </div>
+            onChangeHandler={this.handleInput}
+            match={props.match}
+          />}
+        />
+        <Route
+          path="/character/:id"
+          render={(props) => <CharacterDetail
+            match={props.match}
+            hpCharsWithID={hpCharsWithID}
+          />}
+        />
+      </Switch>
     );
   }
 }

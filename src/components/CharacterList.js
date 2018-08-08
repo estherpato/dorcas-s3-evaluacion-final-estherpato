@@ -18,9 +18,9 @@ class CharacterList extends Component {
                 <ul>
                     {drawMeLikeOneOfYourFrechGirls.map((char, i) =>
                         <li
-                            key={i}
+                            key={char.id}
                         >
-                            <Link to={`/child/${i}`}>
+                            <Link to={`/character/${char.id}`}>
                             <CharacterCard
                                 photo={char.image}
                                 name={char.name}
