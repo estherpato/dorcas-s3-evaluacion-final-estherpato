@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CharacterCard from './CharacterCard';
-import { Link, Route, Switch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class CharacterList extends Component {
     render() {
@@ -16,7 +16,7 @@ class CharacterList extends Component {
         return (
             <div>
                 <ul>
-                    {drawMeLikeOneOfYourFrechGirls.map((char, i) =>
+                    {drawMeLikeOneOfYourFrechGirls.map((char) =>
                         <li
                             key={char.id}
                         >

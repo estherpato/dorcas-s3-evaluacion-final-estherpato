@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import Home from './Home';
 
 class CharacterDetail extends Component {
     render() {
         console.log('lelele')
         return (
             <div>
+                <Link to='/'>Home</Link>
                 holo
                 {/* <img src="" alt="" />
                 <h2></h2>
@@ -14,6 +17,7 @@ class CharacterDetail extends Component {
                     <li></li>
                     <li></li>
                 </ul> */}
+                
             </div>
         );
     }

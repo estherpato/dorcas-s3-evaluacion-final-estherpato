@@ -66,13 +66,12 @@ class App extends Component {
     return (
       <Switch>
         <Route
-          path='/'
+          exact path='/'
           render={(props) => <Home
             hpCharsWithID={hpCharsWithID}
             charactersFiltered={charactersFiltered}
             inputValue={inputValue}
             onChangeHandler={this.handleInput}
-            match={props.match}
           />}
         />
         <Route

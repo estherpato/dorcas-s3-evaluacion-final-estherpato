@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import { Link, Route, Switch } from 'react-router-dom';
 import CharacterList from './CharacterList';
 import Filters from './Filters';
-
-
 
 class App extends Component {
     render() {
