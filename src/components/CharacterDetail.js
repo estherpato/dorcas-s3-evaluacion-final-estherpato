@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Home from './Home';
 
 class CharacterDetail extends Component {
     render() {
-        console.log('lelele')
+        const {hpCharsWithID} = this.props
+        let detailToPaint
+
+        
+
         return (
             <div>
                 <Link to='/'>Home</Link>

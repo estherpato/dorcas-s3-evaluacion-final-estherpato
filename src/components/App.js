@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
-import '../stylesheets/App.css';
 import Home from './Home';
 import CharacterDetail from './CharacterDetail'
 

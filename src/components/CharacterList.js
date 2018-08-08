@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CharacterCard from './CharacterCard';
 import { Link } from 'react-router-dom';
+import '../stylesheets/CharacterList.css'
 
 class CharacterList extends Component {
     render() {
@@ -15,7 +16,7 @@ class CharacterList extends Component {
 
         return (
             <div>
-                <ul>
+                <ul className="CharacterList__container">
                     {drawMeLikeOneOfYourFrechGirls.map((char) =>
                         <li
                             key={char.id}

@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import CharacterList from './CharacterList';
 import Filters from './Filters';
+import '../stylesheets/Home.css'
 
 class App extends Component {
     render() {
         const { hpCharsWithID, charactersFiltered, inputValue, onChangeHandler } = this.props
         return (
-            <div className="App">
-                <header>
+            <div className="Home__container">
+                <header className="Home__header">
                     <h1>Personajillos de Harry Potter</h1>
                 </header>
                 <main>
