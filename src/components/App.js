@@ -3,6 +3,11 @@ import '../stylesheets/App.css';
 import CharacterList from './CharacterList';
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+  }
+
+
   render() {
     return (
       <div className="App">
