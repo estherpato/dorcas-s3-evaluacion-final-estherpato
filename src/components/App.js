@@ -9,8 +9,10 @@ class App extends Component {
 
     this.state = {
       hpCharacters: [],
+      hpCharsWithID: [],
+
       inputValue: '',
-      charactersFiltered: []
+      charactersFiltered: [],
     }
 
     this.handleInput = this.handleInput.bind(this)
@@ -18,6 +20,7 @@ class App extends Component {
 
   handleInput(event) {
     const inputSearch = event.target.value
+
     this.setState({
       inputValue: inputSearch
     })
@@ -37,13 +40,28 @@ class App extends Component {
       .then((json) => {
         this.setState({
           hpCharacters: json
-        });
+        }, this.putID);
       });
   }
 
+  putID() {
+    const copyArray = [...this.state.hpCharacters]
+    let hpCharactersID = []
+    for (let i = 0; i < copyArray.length; i++) {
+      hpCharactersID[i] = {
+        ...copyArray[i],
+        id: i
+      }
+    }
+
+    this.setState({
+      hpCharsWithID: hpCharactersID
+    })
+  }
+
   render() {
-    const { hpCharacters, charactersFiltered, inputValue } = this.state
-    console.log(this.state.charactersFiltered)
+    const { hpCharsWithID, charactersFiltered, inputValue } = this.state
+    console.log(this.state.hpCharsWithID)
     return (
       <div className="App">
         <header>
@@ -55,7 +73,7 @@ class App extends Component {
             onChangeHandler={this.handleInput}
           />
           <CharacterList
-            hpCharacters={hpCharacters}
+            hpCharacters={hpCharsWithID}
             charactersFiltered={charactersFiltered}
             inputValue={inputValue}
           />

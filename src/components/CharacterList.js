@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CharacterCard from './CharacterCard';
+import { Link, Route, Switch } from 'react-router-dom';
 
 class CharacterList extends Component {
     render() {
@@ -19,11 +20,13 @@ class CharacterList extends Component {
                         <li
                             key={i}
                         >
+                            <Link to={`/child/${i}`}>
                             <CharacterCard
                                 photo={char.image}
                                 name={char.name}
                                 house={char.house}
                             />
+                            </Link>
                         </li>
                     )}
                 </ul>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Filters extends Component {
     render() {
-       const { inputValue, onChangeHandler } = this.props
+        const { inputValue, onChangeHandler } = this.props
         return (
             <div>
                 <input
