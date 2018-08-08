@@ -1,20 +1,36 @@
 import React, { Component } from 'react';
 import '../stylesheets/App.css';
 import CharacterList from './CharacterList';
+import Filters from './Filters';
 
 class App extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      hpCharacters: []
+      hpCharacters: [],
+      inputValue: '',
+      charactersFiltered: []
     }
 
-    this.handleInputFilter = this.handleInputFilter.bind(this)
+    this.handleInput = this.handleInput.bind(this)
   }
 
-  handleInputFilter(event) {
+  handleInput(event) {
     console.log(event.target.value)
+    this.setState({
+      inputValue: event.target.value
+    })
+    // ejecuto el filtro
+    this.letsFilter()
+  }
+
+  letsFilter() {
+    const copyArray = [...this.state.hpCharacters]
+    const arrayFilter = copyArray.filter(char => char.name.includes(this.state.inputValue))
+    this.setState({
+      charactersFiltered: arrayFilter
+    })
   }
 
   componentDidMount() {
@@ -28,21 +44,22 @@ class App extends Component {
   }
 
   render() {
-    const { hpCharacters } = this.state
+    console.log(this.state.charactersFiltered)
+    const { hpCharacters, charactersFiltered, inputValue } = this.state
     return (
       <div className="App">
         <header>
           <h1>Personajillos de Harry Potter</h1>
         </header>
         <main>
-          <input
-            type="text"
-            placeholder="Busca tu personaje"
-            
-            onChange={this.handleInputFilter}
+          <Filters 
+            inputValue={inputValue}
+            onChangeHandler={this.handleInput}
           />
           <CharacterList
             hpCharacters={hpCharacters}
+            charactersFiltered={charactersFiltered}
+            inputValue={inputValue}
           />
         </main>
         <footer>
