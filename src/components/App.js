@@ -9,6 +9,12 @@ class App extends Component {
     this.state = {
       hpCharacters: []
     }
+
+    this.handleInputFilter = this.handleInputFilter.bind(this)
+  }
+
+  handleInputFilter(event) {
+    console.log(event.target.value)
   }
 
   componentDidMount() {
@@ -25,9 +31,25 @@ class App extends Component {
     const { hpCharacters } = this.state
     return (
       <div className="App">
-        <CharacterList
-          hpCharacters={hpCharacters}
-        />
+        <header>
+          <h1>Personajillos de Harry Potter</h1>
+        </header>
+        <main>
+          <input
+            type="text"
+            placeholder="Busca tu personaje"
+            
+            onChange={this.handleInputFilter}
+          />
+          <CharacterList
+            hpCharacters={hpCharacters}
+          />
+        </main>
+        <footer>
+          <p>Adalab</p>
+          <p>Evaluación Sprint 3</p>
+          <p>Esther Pato Gonzalez</p>
+        </footer>
       </div>
     );
   }
