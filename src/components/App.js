@@ -27,7 +27,9 @@ class App extends Component {
 
   letsFilter() {
     const copyArray = [...this.state.hpCharacters]
-    const arrayFilter = copyArray.filter(char => char.name.includes(this.state.inputValue))
+    const arrayFilter = copyArray.filter(
+      char => char.name.includes(this.state.inputValue)
+    )
     this.setState({
       charactersFiltered: arrayFilter
     })
@@ -44,7 +46,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.charactersFiltered)
     const { hpCharacters, charactersFiltered, inputValue } = this.state
     return (
       <div className="App">
