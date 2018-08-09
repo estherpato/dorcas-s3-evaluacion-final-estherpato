@@ -42,7 +42,7 @@ class CharacterDetail extends Component {
         }
 
         let status
-        if (detailToPaint.status === true) {
+        if (detailToPaint.alive === true) {
             status = 'Vivo'
         } else {
             status = 'Muerto'
