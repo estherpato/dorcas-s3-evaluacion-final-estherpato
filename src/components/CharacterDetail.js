@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 class CharacterDetail extends Component {
     render() {
-        const cachedChars = localStorage.getItem('characters');
+        const cachedChars = JSON.parse(localStorage.getItem('characters'));
         console.log(cachedChars)
         const { hpCharsWithID, match } = this.props
         let detailToPaint
