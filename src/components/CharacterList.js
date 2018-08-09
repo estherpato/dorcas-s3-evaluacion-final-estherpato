@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
 import CharacterCard from './CharacterCard';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import '../stylesheets/CharacterList.css'
 
 class CharacterList extends Component {
     render() {
-        const { hpCharacters, charactersFiltered } = this.props
+        const {
+            hpCharsWithID,
+            charactersFiltered
+        } = this.props
+
         let drawMeLikeOneOfYourFrechGirls
 
         if (charactersFiltered.length === 0) {
-            drawMeLikeOneOfYourFrechGirls = hpCharacters
+            drawMeLikeOneOfYourFrechGirls = hpCharsWithID
         } else {
             drawMeLikeOneOfYourFrechGirls = charactersFiltered
         }
@@ -22,11 +27,11 @@ class CharacterList extends Component {
                             key={char.id}
                         >
                             <Link to={`/character/${char.id}`}>
-                            <CharacterCard
-                                photo={char.image}
-                                name={char.name}
-                                house={char.house}
-                            />
+                                <CharacterCard
+                                    photo={char.image}
+                                    name={char.name}
+                                    house={char.house}
+                                />
                             </Link>
                         </li>
                     )}
@@ -36,6 +41,9 @@ class CharacterList extends Component {
     }
 }
 
-
+CharacterList.propTypes = {
+    hpCharsWithID: PropTypes.array,
+    charactersFiltered: PropTypes.array,
+};
 
 export default CharacterList;

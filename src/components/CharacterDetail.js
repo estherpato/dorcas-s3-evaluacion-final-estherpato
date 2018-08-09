@@ -1,6 +1,7 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../stylesheets/CharacterDetail.css';
+import PropTypes from 'prop-types';
 import Gryffindor from '../images/gryffindor.png'
 import Slytherin from '../images/slytherin.png'
 import Hufflepuff from '../images/hufflepuff.png'
@@ -9,8 +10,11 @@ import Ravenclaw from '../images/ravenclaw.png'
 class CharacterDetail extends Component {
     render() {
         const cachedChars = JSON.parse(localStorage.getItem('characters'));
-        console.log(cachedChars)
-        const { hpCharsWithID, match } = this.props
+        const {
+            hpCharsWithID,
+            match
+        } = this.props
+
         let detailToPaint
 
         if (cachedChars) {
@@ -48,10 +52,10 @@ class CharacterDetail extends Component {
                     <Link to='/'>Volver</Link>
                 </div>
                 <div className="CardDetail__container">
-                    <img 
-                    className="CardDetail-image"
-                    src={detailToPaint.image} 
-                    alt={detailToPaint.name} />
+                    <img
+                        className="CardDetail-image"
+                        src={detailToPaint.image}
+                        alt={detailToPaint.name} />
                     <div className="CardDetail-info">
                         <h2>{detailToPaint.name}</h2>
                         <img
@@ -70,5 +74,10 @@ class CharacterDetail extends Component {
         );
     }
 }
+
+CharacterDetail.propTypes = {
+    hpCharsWithID: PropTypes.array,
+    match: PropTypes.object.isRequired,
+};
 
 export default CharacterDetail;

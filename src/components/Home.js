@@ -22,7 +22,7 @@ class App extends Component {
                         onChangeHandler={onChangeHandler}
                     />
                     <CharacterList
-                        hpCharacters={hpCharsWithID}
+                        hpCharsWithID={hpCharsWithID}
                         charactersFiltered={charactersFiltered}
                         inputValue={inputValue}
                     />

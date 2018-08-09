@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import '../stylesheets/CharacterCard.css'
+import '../stylesheets/CharacterCard.css';
+import PropTypes from 'prop-types';
 
 class CharacterCard extends Component {
     render() {
@@ -31,8 +32,10 @@ class CharacterCard extends Component {
     }
 }
 
-CharacterCard.defaultProps = {
-    house: 'Sin casa'
-}
+CharacterCard.propTypes = {
+    photo: PropTypes.string,
+    name: PropTypes.string,
+    house: PropTypes.string
+};
 
 export default CharacterCard;

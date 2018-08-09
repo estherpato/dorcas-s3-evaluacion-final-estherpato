@@ -31,7 +31,7 @@ class App extends Component {
       char => char.name.toLowerCase().includes(inputSearch.toLowerCase())
     )
     this.setState({
-      charactersFiltered: arrayFilter
+      charactersFiltered: arrayFilter,
     })
   }
 
@@ -67,7 +67,12 @@ class App extends Component {
   }
 
   render() {
-    const { hpCharsWithID, charactersFiltered, inputValue } = this.state
+    const {
+      hpCharsWithID,
+      charactersFiltered,
+      inputValue
+    } = this.state
+
     return (
       <Switch>
         <Route
