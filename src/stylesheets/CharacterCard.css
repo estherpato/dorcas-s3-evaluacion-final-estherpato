@@ -2,8 +2,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-    height: 400px;
+    justify-content: space-between;
+    height: 350px;
     border: 1px solid black;
     margin: 10px;
     background-color: #FF7854;
@@ -13,23 +13,28 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    height: 350px;
     border: 1px solid black;
     margin: 10px;
-    background-color: darkgreen;
+    background-color: gold;
 }
 
-img {
+.CharacterCard-image {
     width: 200px;
     height: 250px;
     object-fit: cover;
 }
 
+.CharacterCard-house {
+    height: 30px;
+}
+
 a {
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
 a:hover {
-    color: white;
+    color: black;
 }

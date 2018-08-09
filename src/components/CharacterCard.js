@@ -15,11 +15,17 @@ class CharacterCard extends Component {
         return (
             <div className="CharacterCard__container">
                 <img
+                    className="CharacterCard-image"
                     src={photo}
                     alt={name}
                 />
-                <h3>{name}</h3>
-                <p>{houseMembership}</p>
+                <div className="CharacterCard-name"
+                >
+                    <h3>{name}</h3>
+                </div>
+                <div className="CharacterCard-house">
+                    <p>{houseMembership}</p>
+                </div>
             </div>
         );
     }

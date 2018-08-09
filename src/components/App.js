@@ -28,7 +28,7 @@ class App extends Component {
     // ejecuto el filtro
     const copyArray = [...this.state.hpCharsWithID]
     const arrayFilter = copyArray.filter(
-      char => char.name.includes(inputSearch)
+      char => char.name.toLowerCase().includes(inputSearch.toLowerCase())
     )
     this.setState({
       charactersFiltered: arrayFilter
