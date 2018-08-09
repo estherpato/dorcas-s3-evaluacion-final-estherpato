@@ -1,4 +1,32 @@
-.CharacterDetail-house {
+.CardContainer__window {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #FF7854;
+    height: 100vh;
+}
+
+.CardContainer__return-button {
+    background-color: green;
     width: 50px;
+}
+
+.CardDetail__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    margin-top: 30px;
+}
+
+.CardDetail-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.CharacterDetail-house {
+    width: 100px;
     height: auto;
 }

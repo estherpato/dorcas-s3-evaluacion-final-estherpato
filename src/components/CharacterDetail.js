@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
+import '../stylesheets/CharacterDetail.css';
 import Gryffindor from '../images/gryffindor.png'
 import Slytherin from '../images/slytherin.png'
 import Hufflepuff from '../images/hufflepuff.png'
@@ -42,22 +43,26 @@ class CharacterDetail extends Component {
         }
 
         return (
-            <div>
-                <Link to='/'>Home</Link>
-
-                <img src={detailToPaint.image} alt={detailToPaint.name} />
-                <h2>{detailToPaint.name}</h2>
-                <img
-                    className="CharacterDetail-house"
-                    src={houseMembership}
-                    alt={detailToPaint.house}
-                />
-                <ul>
-                    <li>Nacimiento: {detailToPaint.yearOfBirth}</li>
-                    <li>Patronus: {detailToPaint.patronus}</li>
-                    <li>Estado: {status}</li>
-                </ul>
-
+            <div className="CardContainer__window">
+                <div className="CardContainer__return-button">
+                    <Link to='/'>Home</Link>
+                </div>
+                <div className="CardDetail__container">
+                    <img src={detailToPaint.image} alt={detailToPaint.name} />
+                    <div className="CardDetail-info">
+                        <h2>{detailToPaint.name}</h2>
+                        <img
+                            className="CharacterDetail-house"
+                            src={houseMembership}
+                            alt={detailToPaint.house}
+                        />
+                        <ul>
+                            <li>Nacimiento: {detailToPaint.yearOfBirth}</li>
+                            <li>Patronus: {detailToPaint.patronus}</li>
+                            <li>Estado: {status}</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         );
     }
