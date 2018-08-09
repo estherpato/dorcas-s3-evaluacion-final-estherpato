@@ -10,6 +10,7 @@ import Ravenclaw from '../images/ravenclaw.png'
 class CharacterDetail extends Component {
     render() {
         const cachedChars = JSON.parse(localStorage.getItem('characters'));
+        
         const {
             hpCharsWithID,
             match
