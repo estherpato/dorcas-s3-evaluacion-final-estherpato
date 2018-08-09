@@ -37,9 +37,9 @@ class CharacterDetail extends Component {
 
         let status
         if (detailToPaint.status === true) {
-            status = 'Alive'
+            status = 'Vivo'
         } else {
-            status = 'Dead'
+            status = 'Muerto'
         }
 
         return (
@@ -48,7 +48,10 @@ class CharacterDetail extends Component {
                     <Link to='/'>Home</Link>
                 </div>
                 <div className="CardDetail__container">
-                    <img src={detailToPaint.image} alt={detailToPaint.name} />
+                    <img 
+                    className="CardDetail-image"
+                    src={detailToPaint.image} 
+                    alt={detailToPaint.name} />
                     <div className="CardDetail-info">
                         <h2>{detailToPaint.name}</h2>
                         <img
