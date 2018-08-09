@@ -11,29 +11,34 @@ class App extends Component {
             inputValue,
             onChangeHandler
         } = this.props
-        return (
-            <div className="Home__container">
-                <header className="Home__header">
-                    <h1>Personajes de Harry Potter</h1>
-                </header>
-                <main className="Home__main">
-                    <Filters
-                        inputValue={inputValue}
-                        onChangeHandler={onChangeHandler}
-                    />
-                    <CharacterList
-                        hpCharsWithID={hpCharsWithID}
-                        charactersFiltered={charactersFiltered}
-                        inputValue={inputValue}
-                    />
-                </main>
-                <footer className="Home__footer">
-                    <p>Adalab</p>
-                    <p>Evaluación Sprint 3</p>
-                    <p>Esther Pato Gonzalez</p>
-                </footer>
-            </div>
-        );
+
+        if (hpCharsWithID.lenght === 0) {
+            return 'Loading'
+        } else {
+            return (
+                <div className="Home__container">
+                    <header className="Home__header">
+                        <h1>Personajes de Harry Potter</h1>
+                    </header>
+                    <main className="Home__main">
+                        <Filters
+                            inputValue={inputValue}
+                            onChangeHandler={onChangeHandler}
+                        />
+                        <CharacterList
+                            hpCharsWithID={hpCharsWithID}
+                            charactersFiltered={charactersFiltered}
+                            inputValue={inputValue}
+                        />
+                    </main>
+                    <footer className="Home__footer">
+                        <p>Adalab</p>
+                        <p>Evaluación Sprint 3</p>
+                        <p>Esther Pato Gonzalez</p>
+                    </footer>
+                </div>
+            );
+        }
     }
 }
 
