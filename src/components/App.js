@@ -46,22 +46,28 @@ class App extends Component {
 
     this.setState({
       hpCharsWithID: hpCharactersID
-    })
+    }, this.setLocalStorage)
+  }
+
+  setLocalStorage() {
+    const arrayCopy = [...this.state.hpCharsWithID]
+    localStorage.setItem('characters', JSON.stringify(arrayCopy));
+    this.setState({ hpCharsWithID: arrayCopy })
   }
 
   componentDidMount() {
     fetch('http://hp-api.herokuapp.com/api/characters')
       .then((response) => response.json())
+      // .then(json => this.onSetResult(json))
       .then((json) => {
         this.setState({
           hpCharacters: json
         }, this.putID);
       });
-  }
+}
 
   render() {
     const { hpCharsWithID, charactersFiltered, inputValue } = this.state
-    console.log(this.state.hpCharsWithID)
     return (
       <Switch>
         <Route
