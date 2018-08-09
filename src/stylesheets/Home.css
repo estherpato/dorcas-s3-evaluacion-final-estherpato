@@ -12,6 +12,8 @@
     padding: 10px 0 10px 10px;
     border-top: 1px solid black;
     background-color: lightgrey;
+    width: 100%;
+    align-self: flex-end;
 }
 
 @media all and (min-width: 798px) {
