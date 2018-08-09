@@ -3,9 +3,16 @@ import { Link } from 'react-router-dom';
 
 class CharacterDetail extends Component {
     render() {
+        const cachedChars = localStorage.getItem('characters');
+        console.log(cachedChars)
         const { hpCharsWithID, match } = this.props
-        let detailToPaint = hpCharsWithID[match.params.id]
-        console.log(detailToPaint)
+        let detailToPaint
+
+        if (cachedChars) {
+            detailToPaint = cachedChars[match.params.id]
+        } else {
+            detailToPaint = hpCharsWithID[match.params.id]
+        }
 
         let houseMembership
         if (detailToPaint.house === "") {
