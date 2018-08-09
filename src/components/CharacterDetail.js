@@ -45,7 +45,7 @@ class CharacterDetail extends Component {
         return (
             <div className="CardContainer__window">
                 <div className="CardContainer__return-button">
-                    <Link to='/'>Home</Link>
+                    <Link to='/'>Volver</Link>
                 </div>
                 <div className="CardDetail__container">
                     <img 

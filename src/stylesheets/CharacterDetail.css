@@ -8,11 +8,22 @@
 }
 
 .CardContainer__return-button {
-    background-color: green;
-    width: 50px;
+    padding: 15px;
+    background-color: lightgrey;
+    border-radius: 10px;
+}
+
+.CardContainer__return-button a {
+    color: black;
+    font-size: 18px;
+}
+
+.CardContainer__return-button a:hover {
+    color: coral;
 }
 
 .CardDetail__container {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -25,6 +36,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-left: 257px;
     justify-content: space-evenly;
     height: 400px;
     width: 100%;
@@ -36,6 +48,9 @@
 }
 
 .CardDetail-image {
+    position: absolute;
+    top: 0;
+    left: 0;
     max-height: 230px;
     width: auto;
     object-fit: cover;
@@ -45,7 +60,6 @@
     .CardContainer__window {
         background-color: white;
     }
-
     .CardDetail__container {
         display: flex;
         flex-direction: row;
@@ -57,9 +71,9 @@
         border: 1px solid black;
         background-color: #FF7854;
     }
-
     .CardDetail-image {
         max-height: 398px;
+        max-width: 255px;
         width: auto;
         object-fit: cover;
     }
