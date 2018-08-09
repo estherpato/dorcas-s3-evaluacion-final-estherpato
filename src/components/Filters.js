@@ -7,6 +7,7 @@ class Filters extends Component {
         return (
             <div className="Filters__container">
                 <input
+                    className="Filters__input"
                     type="text"
                     placeholder="Busca tu personaje"
                     value={inputValue}
