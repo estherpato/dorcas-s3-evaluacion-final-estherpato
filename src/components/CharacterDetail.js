@@ -10,10 +10,11 @@ import Ravenclaw from '../images/ravenclaw.png'
 class CharacterDetail extends Component {
     render() {
         const cachedChars = JSON.parse(localStorage.getItem('characters'));
-        
+
         const {
             hpCharsWithID,
-            match
+            match,
+            onClickHandler,
         } = this.props
 
         let detailToPaint
@@ -49,7 +50,10 @@ class CharacterDetail extends Component {
 
         return (
             <div className="CardContainer__window">
-                <div className="CardContainer__return-button">
+                <div
+                    className="CardContainer__return-button"
+                    onClick={onClickHandler}
+                >
                     <Link to='/'>Volver</Link>
                 </div>
                 <div className="CardDetail__container">
@@ -79,6 +83,7 @@ class CharacterDetail extends Component {
 CharacterDetail.propTypes = {
     hpCharsWithID: PropTypes.array,
     match: PropTypes.object.isRequired,
+    onClickHandler: PropTypes.func,
 };
 
 export default CharacterDetail;

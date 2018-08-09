@@ -17,6 +17,7 @@ class App extends Component {
     }
 
     this.handleInput = this.handleInput.bind(this)
+    this.handleButton = this.handleButton.bind(this)
   }
 
   handleInput(event) {
@@ -56,6 +57,11 @@ class App extends Component {
     this.setState({ hpCharsWithID: arrayCopy })
   }
 
+  handleButton(event) {
+    event.preventDefault();
+    this.setState({ inputValue: '' })
+  }
+
   componentDidMount() {
     fetch('https://hp-api.herokuapp.com/api/characters')
       .then((response) => response.json())
@@ -89,6 +95,7 @@ class App extends Component {
           render={(props) => <CharacterDetail
             match={props.match}
             hpCharsWithID={hpCharsWithID}
+            onClickHandler={this.handleButton}
           />}
         />
       </Switch>
