@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Home from './Home';
 import CharacterDetail from './CharacterDetail'
 
@@ -13,6 +13,7 @@ class App extends Component {
 
       inputValue: '',
       charactersFiltered: [],
+      charactersFilteredWithID: [],
     }
 
     this.handleInput = this.handleInput.bind(this)
@@ -25,7 +26,7 @@ class App extends Component {
       inputValue: inputSearch
     })
     // ejecuto el filtro
-    const copyArray = [...this.state.hpCharacters]
+    const copyArray = [...this.state.hpCharsWithID]
     const arrayFilter = copyArray.filter(
       char => char.name.includes(inputSearch)
     )
@@ -63,7 +64,7 @@ class App extends Component {
           hpCharacters: json
         }, this.putID);
       });
-}
+  }
 
   render() {
     const { hpCharsWithID, charactersFiltered, inputValue } = this.state

@@ -9,7 +9,7 @@ class App extends Component {
         return (
             <div className="Home__container">
                 <header className="Home__header">
-                    <h1>Personajillos de Harry Potter</h1>
+                    <h1>Personajes de Harry Potter</h1>
                 </header>
                 <main>
                     <Filters
