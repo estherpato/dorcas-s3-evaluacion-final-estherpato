@@ -14,10 +14,48 @@ class App extends Component {
       inputValue: '',
       charactersFiltered: [],
       charactersFilteredWithID: [],
+
+      optionSelected: '',
+      arrayFilteredS: [],
     }
 
     this.handleInput = this.handleInput.bind(this)
     this.handleButton = this.handleButton.bind(this)
+    this.handleSelect = this.handleSelect.bind(this)
+  }
+
+  handleSelect(event) {
+    const selected = event.target.value
+
+    this.setState({
+      optionSelected: selected
+    })
+
+    const arrayCopy = [...this.state.hpCharsWithID]
+    let arrayFiltered = []
+    if (selected === 'Estudiante') {
+      arrayFiltered = arrayCopy.filter((char) => {
+        if (char.hogwartsStudent) {
+          return true;
+        } else {
+          return false;
+        }
+      })
+    } else if (selected === 'Staff') {
+      arrayFiltered = arrayCopy.filter((char) => {
+        if (char.hogwartsStaff) {
+          return true;
+        } else {
+          return false;
+        }
+      })
+    } else {
+      arrayFiltered = arrayCopy
+    }
+
+    this.setState({
+      arrayFilteredS: arrayFiltered
+    }, () => console.log(this.state.arrayFilteredS))
   }
 
   handleInput(event) {
@@ -62,6 +100,8 @@ class App extends Component {
     this.setState({ inputValue: '' })
   }
 
+
+
   componentDidMount() {
     fetch('https://hp-api.herokuapp.com/api/characters')
       .then((response) => response.json())
@@ -76,7 +116,8 @@ class App extends Component {
     const {
       hpCharsWithID,
       charactersFiltered,
-      inputValue
+      inputValue,
+      arrayFilteredS,
     } = this.state
 
     return (
@@ -88,6 +129,8 @@ class App extends Component {
             charactersFiltered={charactersFiltered}
             inputValue={inputValue}
             onChangeHandler={this.handleInput}
+            selectHandler={this.handleSelect}
+            arrayFilteredS={arrayFilteredS}
           />}
         />
         <Route

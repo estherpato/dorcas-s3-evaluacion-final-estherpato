@@ -8,15 +8,18 @@ class CharacterList extends Component {
     render() {
         const {
             hpCharsWithID,
-            charactersFiltered
+            charactersFiltered,
+            arrayFilteredS,
         } = this.props
-
+        console.log('array por props',arrayFilteredS)
         let drawMeLikeOneOfYourFrechGirls
 
-        if (charactersFiltered.length === 0) {
-            drawMeLikeOneOfYourFrechGirls = hpCharsWithID
-        } else {
+        if (charactersFiltered.length > 0) {
             drawMeLikeOneOfYourFrechGirls = charactersFiltered
+        } else if (arrayFilteredS.length > 0) {
+            drawMeLikeOneOfYourFrechGirls = arrayFilteredS
+        } else {
+            drawMeLikeOneOfYourFrechGirls = hpCharsWithID
         }
 
         return (

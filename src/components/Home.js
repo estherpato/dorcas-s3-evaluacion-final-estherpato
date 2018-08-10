@@ -9,9 +9,11 @@ class App extends Component {
             hpCharsWithID,
             charactersFiltered,
             inputValue,
-            onChangeHandler
+            onChangeHandler,
+            selectHandler,
+            arrayFilteredS,
         } = this.props
-
+       
         if (hpCharsWithID.lenght === 0) {
             return 'Loading'
         } else {
@@ -24,11 +26,13 @@ class App extends Component {
                         <Filters
                             inputValue={inputValue}
                             onChangeHandler={onChangeHandler}
+                            selectHandler={selectHandler}
                         />
                         <CharacterList
                             hpCharsWithID={hpCharsWithID}
                             charactersFiltered={charactersFiltered}
                             inputValue={inputValue}
+                            arrayFilteredS={arrayFilteredS}
                         />
                     </main>
                     <footer className="Home__footer">

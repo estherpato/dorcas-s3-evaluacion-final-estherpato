@@ -6,10 +6,12 @@ class Filters extends Component {
     render() {
         const {
             inputValue,
-            onChangeHandler
+            onChangeHandler,
+            selectHandler
         } = this.props
 
         return (
+            <div>
             <div className="Filters__container">
                 <input
                     className="Filters__input"
@@ -18,6 +20,14 @@ class Filters extends Component {
                     value={inputValue}
                     onChange={onChangeHandler}
                 />
+            </div>
+            <div>
+                <select name="" id="" onChange={selectHandler}>
+                <option value="Estudiante">Estudiante</option>
+                <option value="Staff">Staff</option>
+                <option value="Todos">Todos</option>
+                </select>
+            </div>
             </div>
         );
     }
